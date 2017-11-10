@@ -30,6 +30,9 @@ export default (state = initialState, action) => {
         }
       }
     case auth.LOGIN_FAILURE:
+    case auth.REGISTER_SUCCESS:
+      console.log('test')
+    case auth.REGISTER_FAILURE:
     case auth.TOKEN_FAILURE:
       return {
         access: undefined,
@@ -37,6 +40,10 @@ export default (state = initialState, action) => {
         errors:
           action.payload.response ||
           { 'non_field_errors': action.payload.statusText },
+      }
+    case auth.LOGOUT:
+      return {
+        access: undefined
       }
     default:
       return state

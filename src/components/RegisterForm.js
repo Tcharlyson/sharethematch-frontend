@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Alert, Button, Jumbotron, Form } from 'reactstrap';
 import TextInput from './TextInput'
-import { Link } from 'react-router'
 
 export default class LoginForm extends Component {
   state = {
     username: '',
+    email: '',
     password: ''
   }
 
@@ -21,7 +21,7 @@ export default class LoginForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault()
-    this.props.onSubmit(this.state.username, this.state.password)
+    this.props.onSubmit(this.state.username, this.state.email, this.state.password)
   }
 
   render() {
@@ -38,18 +38,21 @@ export default class LoginForm extends Component {
           }
           <TextInput name="username" label="Username"
             error={errors.username}
-            onChange={this.handleInputChange}/>
+            onChange={this.handleInputChange} />
+          <TextInput name="email" label="Email"
+            error={errors.email}
+            onChange={this.handleInputChange} />
           <TextInput name="password" label="Password"
-                      error={errors.password} type="password"
-                      onChange={this.handleInputChange}/>
+            error={errors.password} type="password"
+            onChange={this.handleInputChange} />
           <Button type="submit" color="primary" size="lg">
-              Log In
+            Register
           </Button>
         </Form>
         <br/>
         <Button color="primary" size="lg">
           {/* <Link to="/register">Register</Link> */}
-          <a href="http://localhost:3000/register">Register</a>
+          <a href="http://localhost:3000/login">Login</a>
         </Button>
       </Jumbotron >
     )
