@@ -1,10 +1,9 @@
-import { createStore, combineReducers } from 'redux';
-import products from './reducers/products';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { apiMiddleware } from 'redux-api-middleware';
+import auth from './reducers/auth';
 
 const store = createStore(combineReducers({
-  products,
-}),
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+  auth
+}), applyMiddleware(apiMiddleware));
 
 export default store;

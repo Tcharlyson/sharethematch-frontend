@@ -1,4 +1,4 @@
-import App from './../components/app';
+import Signup from './../components/signup';
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
@@ -6,4 +6,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(Signup);
