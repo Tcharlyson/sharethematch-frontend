@@ -4,7 +4,7 @@ import { Redirect } from 'react-router'
 
 import Login from './../../components/auth/login'
 import { loginUser as actionLoginUser } from './../../actions/auth';
-import isAuthenticated from './../../store/selectors/auth';
+import isAuthenticated from './../../store/selectors/is-authenticated';
 
 const LoginRestrict = (props) => {
   if (props.isAuthenticated) {

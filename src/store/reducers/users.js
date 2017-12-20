@@ -4,7 +4,7 @@ import {
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
   GET_USER_FAILURE,
-} from './../../actions/meetups';
+} from './../../actions/users';
 
 const initialState = {
   user: {},
@@ -21,7 +21,7 @@ handlers[GET_USER_REQUEST] = (state, action) => ({
 handlers[GET_USER_SUCCESS] = (state, action) => ({
   ...state,
   user: action.payload,
-  isLoading: true,
+  isLoading: false,
 });
 
 handlers[GET_USER_FAILURE] = (state, action) => ({

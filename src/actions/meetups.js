@@ -1,5 +1,4 @@
 // @TODO: Replace plain token with actual token from store
-
 import { RSAA } from 'redux-api-middleware';
 
 // FILTER
@@ -18,7 +17,6 @@ export const apply = (userId, meetupId) => ({
     endpoint: 'http://api.sharethematch.fr/users',
     method: 'POST',
     body: JSON.stringify({ userId, meetupId }),
-    headers: { 'Authorization': 'Token 54e49b258b99da3e81c1f30db12945cd51569dd5' },
     types: [
       APPLY_REQUEST, APPLY_SUCCESS, APPLY_FAILURE
     ]
@@ -30,11 +28,11 @@ export const FETCH_INITIAL_DATA = 'FETCH_INITIAL_DATA';
 export const FETCH_INITIAL_DATA_SUCCESS = 'FETCH_INITIAL_DATA_SUCCESS';
 export const FETCH_INITIAL_DATA_ERROR = 'FETCH_INITIAL_DATA_ERROR';
 
-export const fetchInitialData = () => ({
+export const fetchInitialData = (accessToken) => ({
   [RSAA]: {
     endpoint: 'http://api.sharethematch.fr/meetups',
     method: 'GET',
-    headers: { 'Content-Type': 'application/json', 'Authorization': 'Token 54e49b258b99da3e81c1f30db12945cd51569dd5' },
+    headers: { 'Content-Type': 'application/json' },
     types: [
       FETCH_INITIAL_DATA, FETCH_INITIAL_DATA_SUCCESS, FETCH_INITIAL_DATA_ERROR
     ]
@@ -51,7 +49,7 @@ export const create = (params) => ({
     endpoint: 'http://api.sharethematch.fr/meetups',
     method: 'POST',
     body: JSON.stringify(params),
-    headers: { 'Content-Type': 'application/json', 'Authorization': 'Token 54e49b258b99da3e81c1f30db12945cd51569dd5' },
+    headers: { 'Content-Type': 'application/json' },
     types: [
       CREATE_REQUEST, CREATE_SUCCESS, CREATE_FAILURE
     ]
@@ -67,7 +65,6 @@ export const destroy = (id) => ({
   [RSAA]: {
     endpoint: 'http://api.sharethematch.fr/meetups/' + id,
     method: 'DELETE',
-    headers: { 'Authorization': 'Token 54e49b258b99da3e81c1f30db12945cd51569dd5' },
     types: [
       DELETE_REQUEST,
       {

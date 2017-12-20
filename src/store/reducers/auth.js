@@ -1,42 +1,52 @@
-import * as auth from './../../actions/auth';
+import createReducer from './create-reducer';
+
+import {
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  SIGNUP_REQUEST,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAILURE,
+} from './../../actions/auth';
 
 const initialState = {
   accessToken: undefined,
-  refreshToken: undefined,
-  errors: {},
+  isLoading: undefined, 
 }
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    // LOGIN
-    case auth.LOGIN_SUCCESS:
-      localStorage.setItem('token', action.payload.token)
-      return {
-        accessToken: action.payload.token,
-        errors: {}
-      }    
-    case auth.LOGIN_FAILURE:
-      return {
-        errors: {'Error':'Auth failed'},
-      }
-    case auth.LOGIN_REQUEST:
-      console.log('Request...');
-      break;
+const handlers = {};
 
-    // SIGNUP
-    case auth.SIGNUP_SUCCESS:
-      console.log('User created.')
-      break;
-    case auth.SIGNUP_FAILURE:
-      return {
-        errors: {'Error':'Auth failed'},
-      }
-    case auth.SIGNUP_REQUEST:
-      console.log('Request...');
-      break;
-  
-    default:
-      break;
-  }
-  return state;
-}
+// Login reducers
+handlers[LOGIN_REQUEST] = (state, action) => ({
+  ...state,
+  isLoading: true,
+});
+
+handlers[LOGIN_SUCCESS] = (state, action) => ({
+  ...state,
+  accessToken: action.payload.token,
+  isLoading: false,
+});
+
+handlers[LOGIN_FAILURE] = (state, action) => ({
+  ...state,
+  isLoading: true,
+});
+
+// Signup reducers
+handlers[SIGNUP_REQUEST] = (state, action) => ({
+  ...state,
+  isLoading: true,
+});
+
+handlers[SIGNUP_SUCCESS] = (state, action) => ({
+  ...state,
+  isLoading: false,
+});
+
+handlers[SIGNUP_FAILURE] = (state, action) => ({
+  ...state,
+  isLoading: true,
+});
+
+export default createReducer(initialState, handlers);

@@ -19,6 +19,7 @@ import {
 const initialState = {
   list: [],
   isLoading: false,
+  isLoadingDestroy: false,
 }
 
 const handlers = {};
@@ -58,7 +59,7 @@ handlers[APPLY_SUCCESS] = (state, action) => ({
     }
     return meetup;
   }),
-  isLoading: true,
+  isLoading: false,
 });
 
 handlers[APPLY_FAILURE] = (state, action) => ({
@@ -74,7 +75,7 @@ handlers[CREATE_REQUEST] = (state, action) => ({
 handlers[CREATE_SUCCESS] = (state, action) => ({
   ...state,
   list: state.list.concat(action.payload),
-  isLoading: true,
+  isLoading: false,
 });
 
 handlers[CREATE_FAILURE] = (state, action) => ({
@@ -84,7 +85,7 @@ handlers[CREATE_FAILURE] = (state, action) => ({
 
 handlers[DELETE_REQUEST] = (state, action) => ({
   ...state,
-  isLoading: true,
+  isLoadingDestroy: true,
 });
 
 handlers[DELETE_SUCCESS] = (state, action) => ({
@@ -92,12 +93,12 @@ handlers[DELETE_SUCCESS] = (state, action) => ({
   list: state.list.filter(meetup => {
     return meetup.id !== action.meta.id
   }),
-  isLoading: false,
+  isLoadingDestroy: false,
 });
 
 handlers[DELETE_FAILURE] = (state, action) => ({
   ...state,
-  isLoading: true,
+  isLoadingDestroy: true,
 });
 
 export default createReducer(initialState, handlers);

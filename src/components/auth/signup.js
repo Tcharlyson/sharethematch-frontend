@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-import { Form, FormGroup, FormControl, Button, Col, Checkbox, ControlLabel } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, Button, Col, ControlLabel } from 'react-bootstrap';
 
 class Signup extends Component {
 

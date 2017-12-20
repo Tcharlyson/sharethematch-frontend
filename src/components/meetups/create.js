@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, FormControl, Button, Col, Checkbox, ControlLabel } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, Button, Col, ControlLabel } from 'react-bootstrap';
 // import handleInputChange from './../../utils/handle-input-change'
 
 class CreateMeetup extends Component {
@@ -35,7 +35,6 @@ class CreateMeetup extends Component {
   }
 
   handleCreateClick = (e) => {
-    console.log(this.state.params)
     this.props.createMeetup(this.state.params);
   }
 

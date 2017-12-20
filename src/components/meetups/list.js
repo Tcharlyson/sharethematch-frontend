@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import MeetupItem from './item';
 import makeList from './../list';
 import { Button } from 'react-bootstrap';
