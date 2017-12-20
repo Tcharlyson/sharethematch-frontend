@@ -25,6 +25,11 @@ class App extends Component {
       )
     }
   }
+
+  componentDidMount() {
+    this.props.fetchInitialData();
+  }
+
   render() {
 
     return (

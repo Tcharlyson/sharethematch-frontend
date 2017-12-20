@@ -8,6 +8,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import App from './containers/app';
 import Login from './containers/login';
 import Signup from './containers/signup';
+import Meetups from './containers/meetups';
 import store from './store';
 
 ReactDOM.render((
@@ -15,6 +16,7 @@ ReactDOM.render((
       <BrowserRouter>
         <div>
           <Route path="/" component={App} />
+          <Route exact path="/" component={Meetups} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
         </div>
