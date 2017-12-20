@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 class App extends Component {
   render() {
 
+    const { isAuthenticated } = this.props;
+
     return (
       <div className="App">
         <Navbar>
@@ -16,7 +18,7 @@ class App extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Navbar.Text pullRight>
-              <Link to={`/login`}>Login</Link>/<Link to={`/signup`}>Sign Up</Link>
+              {isAuthenticated ? 'Hi user' : <Link to={`/login`}>Login</Link> + '|' + <Link to={`/signup`}>Register</Link>}
             </Navbar.Text>
           </Navbar.Collapse>
         </Navbar>
