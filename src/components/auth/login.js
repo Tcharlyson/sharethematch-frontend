@@ -28,7 +28,6 @@ class Login extends Component {
   }
 
   handleLoginUserClick = (e) => {
-    console.log(this.state);
     this.props.loginUser(this.state.email, this.state.password);
   }
 
@@ -65,7 +64,7 @@ class Login extends Component {
             <Col smOffset={2} sm={10}>
               <Button onClick={this.handleLoginUserClick}>
                 Sign in
-          </Button>
+              </Button>
             </Col>
           </FormGroup>
         </Form>

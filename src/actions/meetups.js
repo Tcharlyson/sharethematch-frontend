@@ -1,3 +1,5 @@
+// @TODO: Replace plain token with actual token from store
+
 import { RSAA } from 'redux-api-middleware';
 
 // FILTER
@@ -30,7 +32,7 @@ export const FETCH_INITIAL_DATA_ERROR = 'FETCH_INITIAL_DATA_ERROR';
 
 export const fetchInitialData = () => ({
   [RSAA]: {
-    endpoint: 'http://api.sharethematch.fr/users',
+    endpoint: 'http://api.sharethematch.fr/meetups',
     method: 'GET',
     headers: { 'Content-Type': 'application/json', 'Authorization': 'Token 54e49b258b99da3e81c1f30db12945cd51569dd5' },
     types: [
@@ -38,3 +40,43 @@ export const fetchInitialData = () => ({
     ]
   }
 })
+
+// CREATE
+export const CREATE_REQUEST = 'CREATE_REQUEST';
+export const CREATE_SUCCESS = 'CREATE_SUCCESS';
+export const CREATE_FAILURE = 'CREATE_FAILURE';
+
+export const create = (params) => ({
+  [RSAA]: {
+    endpoint: 'http://api.sharethematch.fr/meetups',
+    method: 'POST',
+    body: JSON.stringify(params),
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Token 54e49b258b99da3e81c1f30db12945cd51569dd5' },
+    types: [
+      CREATE_REQUEST, CREATE_SUCCESS, CREATE_FAILURE
+    ]
+  }
+});
+
+// DELETE
+export const DELETE_REQUEST = 'DELETE_REQUEST';
+export const DELETE_SUCCESS = 'DELETE_SUCCESS';
+export const DELETE_FAILURE = 'DELETE_FAILURE';
+
+export const destroy = (id) => ({
+  [RSAA]: {
+    endpoint: 'http://api.sharethematch.fr/meetups/' + id,
+    method: 'DELETE',
+    headers: { 'Authorization': 'Token 54e49b258b99da3e81c1f30db12945cd51569dd5' },
+    types: [
+      DELETE_REQUEST,
+      {
+        type: DELETE_SUCCESS,
+        meta: {
+          id: id
+        }
+      },
+      DELETE_FAILURE,
+    ],
+  }
+});

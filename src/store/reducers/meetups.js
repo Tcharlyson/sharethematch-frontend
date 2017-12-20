@@ -1,5 +1,6 @@
 import createReducer from './create-reducer';
 
+// @TODO: This is shit
 import {
   APPLY_REQUEST,
   APPLY_SUCCESS,
@@ -7,7 +8,13 @@ import {
   FETCH_INITIAL_DATA,
   FETCH_INITIAL_DATA_SUCCESS,
   FETCH_INITIAL_DATA_ERROR,
-} from './../../actions';
+  CREATE_REQUEST,
+  CREATE_SUCCESS,
+  CREATE_FAILURE,
+  DELETE_REQUEST,
+  DELETE_SUCCESS,
+  DELETE_FAILURE,
+} from './../../actions/meetups';
 
 const initialState = {
   list: [],
@@ -23,9 +30,9 @@ handlers[FETCH_INITIAL_DATA] = (state, action) => ({
 
 handlers[FETCH_INITIAL_DATA_SUCCESS] = (state, action) => ({
   ...state,
-  list: state.list.concat(action.payload.meetups.map(p => ({
+  list: state.list.concat(action.payload.map(p => ({
     ...p,
-    initialSeats: p.seats,
+    initialSeats: p.places_available,
   }))),
   isLoading: false,
 });
@@ -46,7 +53,7 @@ handlers[APPLY_SUCCESS] = (state, action) => ({
     if (meetup.id === action.payload.id) {
       return {
         ...meetup,
-        seats: meetup.seats - 1,
+        seats: meetup.places_available - 1,
       }
     }
     return meetup;
@@ -55,6 +62,40 @@ handlers[APPLY_SUCCESS] = (state, action) => ({
 });
 
 handlers[APPLY_FAILURE] = (state, action) => ({
+  ...state,
+  isLoading: true,
+});
+
+handlers[CREATE_REQUEST] = (state, action) => ({
+  ...state,
+  isLoading: true,
+});
+
+handlers[CREATE_SUCCESS] = (state, action) => ({
+  ...state,
+  list: state.list.concat(action.payload),
+  isLoading: true,
+});
+
+handlers[CREATE_FAILURE] = (state, action) => ({
+  ...state,
+  isLoading: true,
+});
+
+handlers[DELETE_REQUEST] = (state, action) => ({
+  ...state,
+  isLoading: true,
+});
+
+handlers[DELETE_SUCCESS] = (state, action) => ({
+  ...state,
+  list: state.list.filter(meetup => {
+    return meetup.id !== action.meta.id
+  }),
+  isLoading: false,
+});
+
+handlers[DELETE_FAILURE] = (state, action) => ({
   ...state,
   isLoading: true,
 });

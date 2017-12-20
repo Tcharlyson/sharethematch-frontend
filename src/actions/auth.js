@@ -4,6 +4,10 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
+export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
+
 export const loginUser = (username, password) => ({
   [RSAA]: {
     endpoint: 'http://api.sharethematch.fr/auth/',
@@ -15,3 +19,15 @@ export const loginUser = (username, password) => ({
     ]
   }
 });
+
+export const signup = (params) => ({
+  [RSAA]: {
+    endpoint: 'http://api.sharethematch.fr/users',
+    method: 'POST',
+    body: JSON.stringify(params),
+    headers: { 'Content-Type': 'application/json' },
+    types: [
+      SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE
+    ]
+  }
+})

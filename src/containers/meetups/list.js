@@ -1,31 +1,27 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import {
-  apply,
-} from './../actions';
+import { apply, destroy } from './../../actions/meetups';
+// import { getUser as actionGetUser } from './../actions/users';
 
-import getMeetups from './../store/selectors/get-meetups';
-import isLoading from './../store/selectors/is-loading';
+import getMeetups from './../../store/selectors/get-meetups';
+import isLoading from './../../store/selectors/is-loading';
 
-import MeetupList from './../components/meetup-list';
+import MeetupList from './../../components/meetups/list';
 
 const isLoadingMeetups = isLoading('meetups');
 
 const mapStateToProps = (state, props) => {
-
-  console.log('getmeetups', state, getMeetups(state))
-  // const categoryId = props.category;
-
   return {
     meetups: getMeetups(state),
-      // .filter(meetup => meetup.category === categoryId),
+    // getUser: actionGetUser(state),
     isLoading: isLoadingMeetups(state),
   };
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   apply,
+  destroy,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(MeetupList);

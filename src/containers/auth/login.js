@@ -1,13 +1,14 @@
-import Login from './../components/login';
+import React from 'react';
 import { connect } from "react-redux";
 import { Redirect } from 'react-router'
-import React from 'react';
-import { loginUser as actionLoginUser } from './../actions/auth';
-import isAuthenticated from './../store/selectors/auth';
+
+import Login from './../../components/auth/login'
+import { loginUser as actionLoginUser } from './../../actions/auth';
+import isAuthenticated from './../../store/selectors/auth';
 
 const LoginRestrict = (props) => {
   if (props.isAuthenticated) {
-    return <Redirect to='/' {...props} />
+    return <Redirect to='/' />
   }
 
   return (

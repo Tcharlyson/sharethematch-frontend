@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import MeetupItem from './meetup-item';
 
 const makeList = (Item) => class List extends Component {
 
@@ -17,7 +16,7 @@ const makeList = (Item) => class List extends Component {
     } = this.props;
 
     return (
-      <div className="list">
+      <div className="list col-lg-8 col-lg-offset-2">
         {meetups.map(meetup => <Item key={meetup.id} {...meetup} {...props} />)}
       </div>
     );

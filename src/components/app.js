@@ -16,7 +16,7 @@ class App extends Component {
       return (
         <Navbar.Collapse>
           <Navbar.Text pullRight>
-            <Link to={`/signup`}>Register</Link>
+            <Link to={`/signup`}>Sign up</Link>
           </Navbar.Text>
           <Navbar.Text pullRight>
             <Link to={`/login`}>Login</Link>
