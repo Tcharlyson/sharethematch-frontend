@@ -12,7 +12,7 @@ export default class Meetups extends Component {
     const { isLoading, ...props } = this.props;
     return (
       isLoading ? (
-        <div className="col-lg-offset-2">Loading data...</div>
+        <div className="col-lg-offset-3">Loading data...</div>
       ) : (
         <MeetupList {...props} />
       )
@@ -24,7 +24,7 @@ export default class Meetups extends Component {
   render() {
     return (
       <div className="meetup-list">
-        <Button className="create-meetup col-lg-offset-2">
+        <Button className="create-meetup col-lg-offset-3">
           <Link to="/meetups/new">Create meetup</Link>
         </Button>
         {this.renderList()}

@@ -25,36 +25,43 @@ class MeetupItem extends Component {
 
   render() {
     const {
+      id,
       title,
       user,
       places_available,
     } = this.props;
 
-    // const hostName = getUser(user)
-    // console.log('host', user)
+    const { pendingDestroy, ...props } = this.props;
 
     return (
-      <div className="meetup">
-
-        <div className="meetup-content">
-          <div className="meetup-name">{title}</div>
-          <div className="meetup-details">Host id {user}</div>
+      pendingDestroy === id ? (
+        <div className="meetup pending-destroy">
+          <div className="meetup-content">
+            <div>Pending destroy...</div>
+          </div>
         </div>
-        <div className="meetup-highlight">Places available : {places_available}</div>
+      ) : (
+        <div className="meetup">
+          <div className="meetup-content">
+            <div className="meetup-name">{title}</div>
+            <div className="meetup-details">Host id {user}</div>
+          </div>
+          <div className="meetup-highlight">Places available : {places_available}</div>
 
-        <div className="meetup-actions">
-          <Button
-            onClick={this.handleApplyClick}
-            disabled={!places_available}
-            >
-            Apply
-          </Button>
-          {/* @TODO: Only show delete btn to admins and if user is meetup host */}
-          <Button onClick={this.handleDestroyClick}>
-            <Glyphicon glyph="trash"/>
-          </Button>
+          <div className="meetup-actions">
+            <Button
+              onClick={this.handleApplyClick}
+              disabled={!places_available}
+              >
+              Apply
+            </Button>
+            {/* @TODO: Only show delete btn to admins and if user is meetup host */}
+            <Button onClick={this.handleDestroyClick}>
+              <Glyphicon glyph="trash"/>
+            </Button>
+          </div>
         </div>
-      </div>
+      )
     );
   }
 

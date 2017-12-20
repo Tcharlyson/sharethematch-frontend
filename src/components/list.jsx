@@ -16,7 +16,7 @@ const makeList = (Item) => class List extends Component {
     } = this.props;
 
     return (
-      <div className="list col-lg-8 col-lg-offset-2">
+      <div className="list col-lg-6 col-lg-offset-3">
         {meetups.map(meetup => <Item key={meetup.id} {...meetup} {...props} />)}
       </div>
     );

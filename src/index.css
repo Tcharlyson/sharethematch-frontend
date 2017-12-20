@@ -74,3 +74,9 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.pending-destroy {
+  background-color: rgba(200, 0, 0, 0.8);
+  text-align: center;
+  height: 73px;
+}

@@ -66,7 +66,12 @@ export const destroy = (id) => ({
     endpoint: 'http://api.sharethematch.fr/meetups/' + id,
     method: 'DELETE',
     types: [
-      DELETE_REQUEST,
+      {
+        type: DELETE_REQUEST,
+        meta: {
+          id: id
+        }
+      },
       {
         type: DELETE_SUCCESS,
         meta: {
