@@ -13,10 +13,6 @@ class Login extends Component {
     }
   }
 
-  // static propTypes = {
-  //   loginUser: PropTypes.func.isRequired,
-  // }
-
   handleInputChange = (event) => {
     const target = event.target,
       value = target.type ===
@@ -27,8 +23,8 @@ class Login extends Component {
     });
   }
 
-  handleLoginUserClick = (e) => {
-    this.props.loginUser(this.state.email, this.state.password);
+  handleLoginClick = (e) => {
+    this.props.login(this.state.email, this.state.password);
   }
 
   render() {
@@ -62,7 +58,7 @@ class Login extends Component {
 
           <FormGroup>
             <Col smOffset={2} sm={10}>
-              <Button onClick={this.handleLoginUserClick}>
+              <Button onClick={this.handleLoginClick}>
                 Sign in
               </Button>
             </Col>

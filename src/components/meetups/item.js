@@ -31,7 +31,7 @@ class MeetupItem extends Component {
       places_available,
     } = this.props;
 
-    const { pendingDestroy, ...props } = this.props;
+    const { pendingDestroy } = this.props;
 
     return (
       pendingDestroy === id ? (
@@ -52,7 +52,7 @@ class MeetupItem extends Component {
             <Button
               onClick={this.handleApplyClick}
               disabled={!places_available}
-              >
+            >
               Apply
             </Button>
             {/* @TODO: Only show delete btn to admins and if user is meetup host */}

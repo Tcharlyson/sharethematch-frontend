@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from 'react-router'
 
 import Login from './../../components/auth/login'
-import { loginUser as actionLoginUser } from './../../actions/auth';
+import { login as actionLogin } from './../../actions/auth';
 import isAuthenticated from './../../store/selectors/is-authenticated';
 
 const LoginRestrict = (props) => {
@@ -25,8 +25,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  loginUser: (username, password) => {
-    dispatch(actionLoginUser(username, password));
+  login: (username, password) => {
+    dispatch(actionLogin(username, password));
   }
 })
 

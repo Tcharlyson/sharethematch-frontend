@@ -18,10 +18,6 @@ class CreateMeetup extends Component {
     }
   }
 
-  // static propTypes = {
-  //   loginUser: PropTypes.func.isRequired,
-  // }
-
   handleInputChange = (event) => {
     const target = event.target,
       value = target.value,

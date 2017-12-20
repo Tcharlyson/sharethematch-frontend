@@ -8,7 +8,7 @@ export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
 
-export const loginUser = (username, password) => ({
+export const login = (username, password) => ({
   [RSAA]: {
     endpoint: 'http://api.sharethematch.fr/auth/',
     method: 'POST',
