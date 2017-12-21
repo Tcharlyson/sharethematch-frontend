@@ -28,6 +28,7 @@ const handlers = {};
 handlers[FETCH_INITIAL_DATA] = (state, action) => ({
   ...state,
   isLoading: true,
+  redirectMeetups: false,
 });
 
 handlers[FETCH_INITIAL_DATA_SUCCESS] = (state, action) => ({

@@ -8,6 +8,7 @@ import {
   SIGNUP_SUCCESS,
   SIGNUP_FAILURE,
   LOGOUT,
+  RESET_REDIRECT,
 } from './../../actions/auth';
 
 const initialState = {
@@ -60,5 +61,10 @@ handlers[SIGNUP_FAILURE] = (state, action) => ({
 });
 
 handlers[LOGOUT] = (state, action) => (initialState);
+
+handlers[RESET_REDIRECT] = (state, action) => ({
+  ...state,
+  redirectLogin: false,
+});
 
 export default createReducer(initialState, handlers);

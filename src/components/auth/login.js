@@ -12,6 +12,10 @@ class Login extends Component {
     }
   }
 
+  componentDidMount() {
+    this.props.resetRedirect()
+  }
+
   // button = () => (
   //   <Route render={({ history}) => (
   //     <Button

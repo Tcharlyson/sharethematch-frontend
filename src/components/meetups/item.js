@@ -56,6 +56,7 @@ class MeetupItem extends Component {
 
           <div className="item-actions">
             <Button
+              className="apply-btn"
               onClick={this.handleApplyClick}
               disabled={disable}>
               {disable ? 'Applied' : 'Apply'}
