@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import { Form, FormGroup, FormControl, Button, Col, Checkbox, ControlLabel } from 'react-bootstrap';
-
+import { Link, Redirect } from 'react-router-dom'
+import { Form, FormGroup, FormControl, Button, Col, ControlLabel } from 'react-bootstrap';
 class Login extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      email: '',
+      username: '',
       password: '',
     }
   }
+
+  // button = () => (
+  //   <Route render={({ history}) => (
+  //     <Button
+  //       type='button'
+  //       onClick={() => { 
+  //         this.props.login(this.state.username, this.state.password);
+  //         history.push('/')
+  //       }}
+  //     >
+  //       Sign in
+  //     </Button>
+  //   )} />
+  // )
 
   handleInputChange = (event) => {
     const target = event.target,
@@ -24,22 +37,25 @@ class Login extends Component {
   }
 
   handleLoginClick = (e) => {
-    this.props.login(this.state.email, this.state.password);
+    this.props.login(this.state.username, this.state.password);
   }
 
   render() {
+    const { isAuthenticated } = this.props;
 
-    return (
+    return ( isAuthenticated ? (
+      <Redirect to="/"/>
+    ) : (
       <Col md={6} mdOffset={3} className="auth-card">
         <h1>Sign in</h1>
         <Col md={8} mdOffset={2}>
           <Form horizontal>
             <FormGroup controlId="formHorizontalEmail">
               <Col componentClass={ControlLabel} sm={2}>
-                Email
+                Username
               </Col>
               <Col sm={10}>
-                <FormControl type="email" name="email" placeholder="Email" onChange={this.handleInputChange} />
+                <FormControl type="text" name="username" placeholder="Username" onChange={this.handleInputChange} />
               </Col>
             </FormGroup>
 
@@ -52,13 +68,16 @@ class Login extends Component {
               </Col>
             </FormGroup>
 
-            <FormGroup>
+            {/* <FormGroup>
               <Col smOffset={2} sm={10}>
                 <Checkbox>Remember me</Checkbox>
               </Col>
-            </FormGroup>
+            </FormGroup> */}
 
             <FormGroup>
+              {/* <Col smOffset={2} sm={10}>
+                {this.button()}
+              </Col> */}
               <Col smOffset={2} sm={10}>
                 <Button onClick={this.handleLoginClick}>
                   Sign in
@@ -74,7 +93,7 @@ class Login extends Component {
           </Form>
         </Col>
       </Col>
-    );
+    ));
   }
 }
 

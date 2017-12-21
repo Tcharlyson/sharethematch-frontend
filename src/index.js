@@ -18,11 +18,11 @@ ReactDOM.render((
     <Provider store={store}>
       <BrowserRouter>
         <div>
-          {/* <Redirect from="/" to="/meetups"/> */}
+          <Redirect from="/*" to="/"/>
           <PrivateRoute path="/" component={App} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/meetups" component={Meetups} />
+          <Route exact path="/" component={Meetups} />
           <Route exact path="/meetups/new" component={CreateMeetup} />
           <Route exact path="/users" component={Users} />
         </div>

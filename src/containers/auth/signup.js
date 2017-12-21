@@ -6,6 +6,7 @@ import Signup from './../../components/auth/signup';
 import { signup as actionSignup } from './../../actions/auth';
 import isAuthenticated from './../../store/selectors/is-authenticated';
 import { auth as errors } from './../../store/selectors/errors';
+import redirectLogin from './../../store/selectors/redirect-login';
 
 const SignupRestrict = (props) => {
   if (props.isAuthenticated) {
@@ -23,6 +24,7 @@ const mapStateToProps = (state) => {
   return {
     isAuthenticated: isAuthenticated(state),
     errors: errors(state),
+    redirectLogin: redirectLogin(state),
   }
 };
 

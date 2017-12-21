@@ -2,9 +2,6 @@ import createReducer from './create-reducer';
 
 // @TODO: This is shit
 import {
-  APPLY_REQUEST,
-  APPLY_SUCCESS,
-  APPLY_FAILURE,
   FETCH_INITIAL_DATA,
   FETCH_INITIAL_DATA_SUCCESS,
   FETCH_INITIAL_DATA_ERROR,
@@ -37,30 +34,6 @@ handlers[FETCH_INITIAL_DATA_SUCCESS] = (state, action) => ({
 });
 
 handlers[FETCH_INITIAL_DATA_ERROR] = (state, action) => ({
-  ...state,
-  isLoading: true,
-});
-
-handlers[APPLY_REQUEST] = (state, action) => ({
-  ...state,
-  isLoading: true,
-});
-
-handlers[APPLY_SUCCESS] = (state, action) => ({
-  ...state,
-  list: state.list.map(meetup => {
-    if (meetup.id === action.payload.id) {
-      return {
-        ...meetup,
-        seats: meetup.places_available - 1,
-      }
-    }
-    return meetup;
-  }),
-  isLoading: false,
-});
-
-handlers[APPLY_FAILURE] = (state, action) => ({
   ...state,
   isLoading: true,
 });

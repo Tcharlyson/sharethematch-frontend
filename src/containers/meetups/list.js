@@ -1,8 +1,8 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { fetchInitialData, apply, destroy } from './../../actions/meetups';
-// import { getUser as actionGetUser } from './../actions/users';
+import { fetchInitialData, destroy } from './../../actions/meetups';
+import { create as apply } from './../../actions/users-meetups';
 
 import getMeetups from './../../store/selectors/get-meetups';
 import isLoading from './../../store/selectors/is-loading';
@@ -17,7 +17,6 @@ const pendingDestroyMeetups = pendingDestroy('meetups');
 const mapStateToProps = (state, props) => {
   return {
     meetups: getMeetups(state),
-    // getUser: actionGetUser(state),
     isLoading: isLoadingMeetups(state),
     pendingDestroy: pendingDestroyMeetups(state),
   };

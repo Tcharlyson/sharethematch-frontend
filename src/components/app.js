@@ -14,7 +14,7 @@ class App extends Component {
       return (
         <Navbar.Collapse>
           <Navbar.Text>
-            <Link to="/meetups">Meetups</Link>
+            <Link to="/">Meetups</Link>
           </Navbar.Text>
           <Navbar.Text>
             <Link to="/users">Users</Link>
