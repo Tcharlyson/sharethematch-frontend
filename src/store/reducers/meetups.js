@@ -13,6 +13,8 @@ import {
   DELETE_FAILURE,
 } from './../../actions/meetups';
 
+import { APPLY_SUCCESS } from './../../actions/users-meetups'
+
 const initialState = {
   list: [],
   isLoading: false,
@@ -74,6 +76,20 @@ handlers[DELETE_SUCCESS] = (state, action) => ({
 handlers[DELETE_FAILURE] = (state, action) => ({
   ...state,
   pendingDestroy: null,
+});
+
+handlers[APPLY_SUCCESS] = (state, action) => ({
+  ...state,
+  list: state.list.map(meetup => {
+    if (meetup.id === action.meta.id) {
+      return {
+        ...meetup,
+        places_available: meetup.places_available - 1,
+      }
+    }
+    return meetup;
+  }),
+  isLoading: false,
 });
 
 export default createReducer(initialState, handlers);

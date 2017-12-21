@@ -12,7 +12,12 @@ export const create = (user, meetup) => ({
     body: JSON.stringify({ user, meetup }),
     headers: { 'Content-Type': 'application/json' },
     types: [
-      APPLY_REQUEST, APPLY_SUCCESS, APPLY_FAILURE
+      APPLY_REQUEST, {
+        type: APPLY_SUCCESS,
+        meta: {
+          id: meetup
+        }
+      }, APPLY_FAILURE
     ]
   }
 });
