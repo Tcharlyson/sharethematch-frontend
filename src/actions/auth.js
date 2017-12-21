@@ -10,6 +10,8 @@ export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
 
 export const LOGOUT = 'LOGOUT';
 
+export const RESET_REDIRECT = 'RESET_REDIRECT';
+
 export const login = (username, password) => ({
   [RSAA]: {
     endpoint: 'http://api.sharethematch.fr/auth-token/',
@@ -36,4 +38,8 @@ export const signup = (params) => ({
 
 export const logout = (id) => ({
   type: LOGOUT
+});
+
+export const resetRedirect = () => ({
+  type: RESET_REDIRECT
 });

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from 'react-router'
 
 import Login from './../../components/auth/login'
-import { login as actionLogin } from './../../actions/auth';
+import { login as actionLogin, resetRedirect } from './../../actions/auth';
 import isAuthenticated from './../../store/selectors/is-authenticated';
 import { auth as errors } from './../../store/selectors/errors';
 
@@ -29,7 +29,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   login: (username, password) => {
     dispatch(actionLogin(username, password));
-  }
+  },
+  resetRedirect: () => {
+    dispatch(resetRedirect())
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginRestrict);

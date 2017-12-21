@@ -93,3 +93,7 @@ body {
 .errors {
   color: red;
 }
+
+.apply-btn {
+  background-color: #4EBD69;
+}
