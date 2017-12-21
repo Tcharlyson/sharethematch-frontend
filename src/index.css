@@ -80,3 +80,12 @@ body {
   text-align: center;
   height: 73px;
 }
+
+.auth-card h1 {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.auth-card .secondary-link {
+  margin-top: 10px;
+}

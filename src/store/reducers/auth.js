@@ -7,6 +7,7 @@ import {
   SIGNUP_REQUEST,
   SIGNUP_SUCCESS,
   SIGNUP_FAILURE,
+  LOGOUT,
 } from './../../actions/auth';
 
 const initialState = {
@@ -48,5 +49,7 @@ handlers[SIGNUP_FAILURE] = (state, action) => ({
   ...state,
   isLoading: true,
 });
+
+handlers[LOGOUT] = (state, action) => (initialState);
 
 export default createReducer(initialState, handlers);

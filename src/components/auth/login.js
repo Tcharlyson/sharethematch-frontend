@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 import { Form, FormGroup, FormControl, Button, Col, Checkbox, ControlLabel } from 'react-bootstrap';
 
 class Login extends Component {
@@ -30,40 +30,46 @@ class Login extends Component {
   render() {
 
     return (
-      <Col md={8} mdOffset={2}>
-        <Form horizontal>
-          <FormGroup controlId="formHorizontalEmail">
-            <Col componentClass={ControlLabel} sm={2}>
-              Email
-            </Col>
-            <Col sm={10}>
-              <FormControl type="email" name="email" placeholder="Email" onChange={this.handleInputChange} />
-            </Col>
-          </FormGroup>
+      <Col md={6} mdOffset={3} className="auth-card">
+        <h1>Sign in</h1>
+        <Col md={8} mdOffset={2}>
+          <Form horizontal>
+            <FormGroup controlId="formHorizontalEmail">
+              <Col componentClass={ControlLabel} sm={2}>
+                Email
+              </Col>
+              <Col sm={10}>
+                <FormControl type="email" name="email" placeholder="Email" onChange={this.handleInputChange} />
+              </Col>
+            </FormGroup>
 
-          <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              Password
-            </Col>
-            <Col sm={10}>
-              <FormControl type="password" name="password" placeholder="Password" onChange={this.handleInputChange} />
-            </Col>
-          </FormGroup>
+            <FormGroup controlId="formHorizontalPassword">
+              <Col componentClass={ControlLabel} sm={2}>
+                Password
+              </Col>
+              <Col sm={10}>
+                <FormControl type="password" name="password" placeholder="Password" onChange={this.handleInputChange} />
+              </Col>
+            </FormGroup>
 
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Checkbox>Remember me</Checkbox>
-            </Col>
-          </FormGroup>
+            <FormGroup>
+              <Col smOffset={2} sm={10}>
+                <Checkbox>Remember me</Checkbox>
+              </Col>
+            </FormGroup>
 
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Button onClick={this.handleLoginClick}>
-                Sign in
-              </Button>
-            </Col>
-          </FormGroup>
-        </Form>
+            <FormGroup>
+              <Col smOffset={2} sm={10}>
+                <Button onClick={this.handleLoginClick}>
+                  Sign in
+                </Button>
+              </Col>
+              <Col smOffset={2} sm={10} className="secondary-link">
+                <span>Don't have an account ? <Link to='/signup'>Sign up</Link></span>
+              </Col>
+            </FormGroup>
+          </Form>
+        </Col>
       </Col>
     );
   }
