@@ -9,9 +9,9 @@ const MeetupList = makeList(MeetupItem);
 export default class Meetups extends Component {
 
   componentDidMount() {
+    this.props.fetchUsersMeetups();
     this.props.fetchInitialData();
     this.props.fetchUsers();
-    this.props.fetchUsersMeetups();
   }
 
   renderList = () => {
