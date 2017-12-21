@@ -31,10 +31,7 @@ handlers[FETCH_INITIAL_DATA] = (state, action) => ({
 
 handlers[FETCH_INITIAL_DATA_SUCCESS] = (state, action) => ({
   ...state,
-  list: state.list.concat(action.payload.map(p => ({
-    ...p,
-    initialSeats: p.places_available,
-  }))),
+  list: action.payload,
   isLoading: false,
 });
 

@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { apply, destroy } from './../../actions/meetups';
+import { fetchInitialData, apply, destroy } from './../../actions/meetups';
 // import { getUser as actionGetUser } from './../actions/users';
 
 import getMeetups from './../../store/selectors/get-meetups';
@@ -24,6 +24,7 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchInitialData,
   apply,
   destroy,
 }, dispatch);

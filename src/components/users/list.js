@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import MeetupItem from './item';
+import UserItem from './item';
 import makeList from './../list';
-import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
-const MeetupList = makeList(MeetupItem);
+const UserList = makeList(UserItem);
 
-export default class Meetups extends Component {
+export default class Users extends Component {
 
   componentDidMount() {
-    this.props.fetchInitialData();
+    this.props.actionGetUsers();
   }
 
   renderList = () => {
@@ -18,7 +16,7 @@ export default class Meetups extends Component {
       isLoading ? (
         <div className="col-lg-offset-3">Loading data...</div>
       ) : (
-        <MeetupList {...props} />
+        <UserList {...props} />
       )
     )
   }
@@ -27,10 +25,7 @@ export default class Meetups extends Component {
 
   render() {
     return (
-      <div className="meetup-list">
-        <Button className="create-meetup col-lg-offset-3">
-          <Link to="/meetups/new">Create meetup</Link>
-        </Button>
+      <div className="user-list">
         {this.renderList()}
       </div>
     )

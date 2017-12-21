@@ -2,19 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Glyphicon } from 'react-bootstrap';
 
-class MeetupItem extends Component {
+class UserItem extends Component {
 
   static propTypes = {
     id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    user: PropTypes.number.isRequired,
-    places_available: PropTypes.number.isRequired,
-    adress: PropTypes.number.isRequired,
-  }
-
-  handleApplyClick = (e) => {
-    const { id } = this.props;
-    this.props.apply(id);
+    username: PropTypes.string.isRequired,
+    last_name: PropTypes.string,
+    first_name: PropTypes.string,
   }
 
   handleDestroyClick = (e) => {
@@ -25,9 +19,9 @@ class MeetupItem extends Component {
   render() {
     const {
       id,
-      title,
-      user,
-      places_available,
+      username,
+      last_name,
+      first_name,
     } = this.props;
 
     const { pendingDestroy } = this.props;
@@ -42,19 +36,12 @@ class MeetupItem extends Component {
       ) : (
         <div className="item">
           <div className="item-content">
-            <div className="item-name">{title}</div>
-            <div className="item-details">Host id {user}</div>
+            <div className="item-name">{username}</div>
+            <div className="item-details">{first_name} {last_name}</div>
           </div>
-          <div className="item-highlight">Places available : {places_available}</div>
 
           <div className="item-actions">
-            <Button
-              onClick={this.handleApplyClick}
-              disabled={!places_available}
-            >
-              Apply
-            </Button>
-            {/* @TODO: Only show delete btn to admins and if user is meetup host */}
+            {/* @TODO: Only show delete btn to admins */}
             <Button onClick={this.handleDestroyClick}>
               <Glyphicon glyph="trash"/>
             </Button>
@@ -66,4 +53,4 @@ class MeetupItem extends Component {
 
 }
 
-export default MeetupItem;
+export default UserItem;

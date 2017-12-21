@@ -1,4 +1,3 @@
-// @TODO: Replace plain token with actual token from store
 import { RSAA } from 'redux-api-middleware';
 
 // FILTER

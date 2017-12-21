@@ -13,7 +13,15 @@ class App extends Component {
     if (isAuthenticated) {
       return (
         <Navbar.Collapse>
-        <Navbar.Text pullRight><Button bsSize="xsmall" onClick={this.handleLogout}>Logout</Button></Navbar.Text>
+          <Navbar.Text>
+            <Link to="/meetups">Meetups</Link>
+          </Navbar.Text>
+          <Navbar.Text>
+            <Link to="/users">Users</Link>
+          </Navbar.Text>
+          <Navbar.Text pullRight>
+            <Button bsSize="xsmall" onClick={this.handleLogout}>Logout</Button>
+          </Navbar.Text>
           <Navbar.Text pullRight>Hi user</Navbar.Text>
         </Navbar.Collapse>
       )
@@ -29,10 +37,6 @@ class App extends Component {
         </Navbar.Collapse>
       )
     }
-  }
-
-  componentDidMount() {
-    this.props.fetchInitialData();
   }
 
   render() {

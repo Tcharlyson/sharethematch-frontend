@@ -4,20 +4,23 @@ import PropTypes from 'prop-types';
 const makeList = (Item) => class List extends Component {
 
   static propTypes = {
-    meetups: PropTypes.array.isRequired,
-    apply: PropTypes.func.isRequired,
+    meetups: PropTypes.array,
+    users: PropTypes.array,
   }
 
   render() {
 
     const {
       meetups,
+      users,
       ...props
     } = this.props;
 
+    const collection = meetups || users
+
     return (
       <div className="list col-lg-6 col-lg-offset-3">
-        {meetups.map(meetup => <Item key={meetup.id} {...meetup} {...props} />)}
+        {collection.map(item => <Item key={item.id} {...item} {...props} />)}
       </div>
     );
   }

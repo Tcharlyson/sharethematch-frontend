@@ -12,7 +12,7 @@ body {
   overflow-y: scroll;
 }
 
-.meetup {
+.item {
   display: flex;
   padding: 16px;
   align-items: center;
@@ -20,26 +20,26 @@ body {
   border-bottom: solid 1px #e7e7e7;
 }
 
-.meetup-content {
+.item-content {
   flex: 1;
 }
 
-.meetup-name {
+.item-name {
   font-weight: bold;
 }
 
-.meetup-highlight {
+.item-highlight {
   font-size: 14px;
   font-weight: bold;
   padding: 8px;
 }
 
-.meetup-actions {
+.item-actions {
   display: flex;
   align-self: flex-end;
 }
 
-.meetup-actions > button {
+.item-actions > button {
   margin: 0 5px;
 }
 
