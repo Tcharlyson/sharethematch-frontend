@@ -21,3 +21,18 @@ export const create = (user, meetup) => ({
     ]
   }
 });
+
+// GET USER MEETUPS
+export const GET_USERS_MEETUPS_REQUEST = 'GET_USERS_MEETUPS_REQUEST';
+export const GET_USERS_MEETUPS_SUCCESS = 'GET_USERS_MEETUPS_SUCCESS';
+export const GET_USERS_MEETUPS_FAILURE = 'GET_USERS_MEETUPS_FAILURE';
+
+export const getUsersMeetups = () => ({
+  [RSAA]: {
+    endpoint: 'http://api.sharethematch.fr/users-meetups',
+    method: 'GET',
+    types: [
+      GET_USERS_MEETUPS_REQUEST, GET_USERS_MEETUPS_SUCCESS, GET_USERS_MEETUPS_FAILURE
+    ]
+  }
+})

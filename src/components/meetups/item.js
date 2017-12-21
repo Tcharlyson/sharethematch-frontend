@@ -9,6 +9,7 @@ class MeetupItem extends Component {
     title: PropTypes.string.isRequired,
     user: PropTypes.number.isRequired,
     places_available: PropTypes.number.isRequired,
+    alreadyApplied: PropTypes.bool,
     adress: PropTypes.number.isRequired,
   }
 
@@ -28,11 +29,16 @@ class MeetupItem extends Component {
       title,
       user,
       places_available,
+      pendingDestroy,
+      usersList, 
+      usersMeetups,
+      alreadyApplied,
     } = this.props;
 
-    const { pendingDestroy, usersList } = this.props;
     const username = usersList.filter(item => item.id === user).map(item => item.username);
-
+    const find = usersMeetups.find(item => (item.user === user && item.meetup === id));
+    const disable = alreadyApplied || !places_available || (find ? true : false);
+    
     return (
       pendingDestroy === id ? (
         <div className="item pending-destroy">
@@ -51,9 +57,8 @@ class MeetupItem extends Component {
           <div className="item-actions">
             <Button
               onClick={this.handleApplyClick}
-              disabled={!places_available}
-            >
-              Apply
+              disabled={disable}>
+              {disable ? 'Applied' : 'Apply'}
             </Button>
             {/* @TODO: Only show delete btn to admins and if user is meetup host */}
             <Button onClick={this.handleDestroyClick}>

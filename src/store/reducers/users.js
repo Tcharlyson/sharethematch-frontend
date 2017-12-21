@@ -16,6 +16,7 @@ const initialState = {
   list: [],
   currentUser: {},
   isLoading: false,
+  meetups: [],
 }
 
 const handlers = {};

@@ -85,6 +85,7 @@ handlers[APPLY_SUCCESS] = (state, action) => ({
       return {
         ...meetup,
         places_available: meetup.places_available - 1,
+        alreadyApplied: true,
       }
     }
     return meetup;
