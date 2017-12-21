@@ -67,6 +67,9 @@ class Login extends Component {
               <Col smOffset={2} sm={10} className="secondary-link">
                 <span>Don't have an account ? <Link to='/signup'>Sign up</Link></span>
               </Col>
+              <Col smOffset={2} sm={10} className="errors">
+                <span>{this.props.errors}</span>
+              </Col>
             </FormGroup>
           </Form>
         </Col>

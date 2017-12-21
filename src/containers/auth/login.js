@@ -5,6 +5,7 @@ import { Redirect } from 'react-router'
 import Login from './../../components/auth/login'
 import { login as actionLogin } from './../../actions/auth';
 import isAuthenticated from './../../store/selectors/is-authenticated';
+import { auth as errors } from './../../store/selectors/errors';
 
 const LoginRestrict = (props) => {
   if (props.isAuthenticated) {
@@ -21,6 +22,7 @@ const LoginRestrict = (props) => {
 const mapStateToProps = (state) => {
   return {
     isAuthenticated: isAuthenticated(state),
+    errors: errors(state),
   }
 };
 

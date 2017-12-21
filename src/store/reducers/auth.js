@@ -13,6 +13,7 @@ import {
 const initialState = {
   accessToken: undefined,
   isLoading: undefined, 
+  errors: undefined,
 }
 
 const handlers = {};
@@ -27,11 +28,13 @@ handlers[LOGIN_SUCCESS] = (state, action) => ({
   ...state,
   accessToken: action.payload.token,
   isLoading: false,
+  errors: undefined,
 });
 
 handlers[LOGIN_FAILURE] = (state, action) => ({
   ...state,
   isLoading: true,
+  errors: "An error occured, please verify your id/password",
 });
 
 // Signup reducers
@@ -43,11 +46,13 @@ handlers[SIGNUP_REQUEST] = (state, action) => ({
 handlers[SIGNUP_SUCCESS] = (state, action) => ({
   ...state,
   isLoading: false,
+  errors: undefined,
 });
 
 handlers[SIGNUP_FAILURE] = (state, action) => ({
   ...state,
   isLoading: true,
+  errors: "An error occured, please verify your infos",
 });
 
 handlers[LOGOUT] = (state, action) => (initialState);

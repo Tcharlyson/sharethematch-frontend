@@ -20,6 +20,7 @@ const initialState = {
   list: [],
   isLoading: false,
   pendingDestroy: null,
+  errors: undefined,
 }
 
 const handlers = {};
@@ -73,11 +74,13 @@ handlers[CREATE_SUCCESS] = (state, action) => ({
   ...state,
   list: state.list.concat(action.payload),
   isLoading: false,
+  errors: undefined,
 });
 
 handlers[CREATE_FAILURE] = (state, action) => ({
   ...state,
   isLoading: true,
+  errors: 'An error occured, please try again',
 });
 
 handlers[DELETE_REQUEST] = (state, action) => ({

@@ -89,7 +89,11 @@ class CreateMeetup extends Component {
             </Col>
           </FormGroup>
         </Form>
+        <Col md={8} mdOffset={2} className="errors">
+          <span>{this.props.errors}</span>
+        </Col>
       </Col>
+      
     );
   }
 }

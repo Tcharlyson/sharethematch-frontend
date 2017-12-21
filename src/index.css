@@ -89,3 +89,7 @@ body {
 .auth-card .secondary-link {
   margin-top: 10px;
 }
+
+.errors {
+  color: red;
+}
