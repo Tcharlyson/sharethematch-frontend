@@ -10,6 +10,7 @@ export default class Meetups extends Component {
 
   componentDidMount() {
     this.props.fetchInitialData();
+    this.props.fetchUsers();
   }
 
   renderList = () => {

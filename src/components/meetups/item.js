@@ -30,7 +30,8 @@ class MeetupItem extends Component {
       places_available,
     } = this.props;
 
-    const { pendingDestroy } = this.props;
+    const { pendingDestroy, usersList } = this.props;
+    const username = usersList.filter(item => item.id === user).map(item => item.username);
 
     return (
       pendingDestroy === id ? (
@@ -43,7 +44,7 @@ class MeetupItem extends Component {
         <div className="item">
           <div className="item-content">
             <div className="item-name">{title}</div>
-            <div className="item-details">Host id {user}</div>
+              <div className="item-details">Host name : {username}</div>
           </div>
           <div className="item-highlight">Places available : {places_available}</div>
 

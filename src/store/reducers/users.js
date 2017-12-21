@@ -14,7 +14,7 @@ import {
 
 const initialState = {
   list: [],
-  user: {},
+  currentUser: {},
   isLoading: false,
 }
 
@@ -27,7 +27,7 @@ handlers[GET_USER_REQUEST] = (state, action) => ({
 
 handlers[GET_USER_SUCCESS] = (state, action) => ({
   ...state,
-  user: action.payload,
+  currentUser: action.payload,
   isLoading: false,
 });
 

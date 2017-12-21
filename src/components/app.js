@@ -7,8 +7,12 @@ class App extends Component {
     this.props.logout();
   }
 
+  componentDidMount() {
+    this.props.getUser(this.props.userId)
+  }
+
   makeNavbar = () => {
-    const { isAuthenticated } = this.props;
+    const { isAuthenticated, currentUser } = this.props;
 
     if (isAuthenticated) {
       return (
@@ -22,7 +26,7 @@ class App extends Component {
           <Navbar.Text pullRight>
             <Button bsSize="xsmall" onClick={this.handleLogout}>Logout</Button>
           </Navbar.Text>
-          <Navbar.Text pullRight>Hi user</Navbar.Text>
+          <Navbar.Text pullRight>Hi {currentUser.username} !</Navbar.Text>
         </Navbar.Collapse>
       )
     } else {
@@ -40,7 +44,6 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div className="App">
         <Navbar>
