@@ -18,6 +18,7 @@ const initialState = {
   isLoading: false,
   pendingDestroy: null,
   errors: undefined,
+  redirectMeetups: false,
 }
 
 const handlers = {};
@@ -46,6 +47,7 @@ handlers[CREATE_REQUEST] = (state, action) => ({
 handlers[CREATE_SUCCESS] = (state, action) => ({
   ...state,
   list: state.list.concat(action.payload),
+  redirectMeetups: true,
   isLoading: false,
   errors: undefined,
 });

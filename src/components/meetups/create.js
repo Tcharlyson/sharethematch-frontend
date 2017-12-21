@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import { Form, FormGroup, FormControl, Button, Col, ControlLabel } from 'react-bootstrap';
-// import handleInputChange from './../../utils/handle-input-change'
 
 class CreateMeetup extends Component {
 
@@ -35,8 +35,11 @@ class CreateMeetup extends Component {
   }
 
   render() {
+    const { redirectMeetups } = this.props;
 
-    return (
+    return ( redirectMeetups ? (
+      <Redirect to="/"/>
+    ) : (
       <Col md={8} mdOffset={2}>
         <Form horizontal>
           {/* Title */}
@@ -93,8 +96,7 @@ class CreateMeetup extends Component {
           <span>{this.props.errors}</span>
         </Col>
       </Col>
-      
-    );
+    ));
   }
 }
 

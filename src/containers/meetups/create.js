@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 
 import { create as createMeetup } from './../../actions/meetups';
 import { meetup as errors } from './../../store/selectors/errors';
-// import { getUser as actionGetUser } from './../actions/users';
 
-// import { createMeetup as actionCreateMeetup} from './../store/selectors/get-meetups';
 // import isLoading from './../store/selectors/is-loading';
+import redirectMeetups from './../../store/selectors/redirect-meetups';
 
 import CreateMeetup from './../../components/meetups/create';
 
@@ -15,6 +14,8 @@ import CreateMeetup from './../../components/meetups/create';
 const mapStateToProps = (state, props) => {
   return {
     errors: errors(state),
+    // isLoading: isLoadingMeetups(state),
+    redirectMeetups: redirectMeetups(state)
   };
 };
 

@@ -12,13 +12,10 @@ import {
 
 const initialState = {
   accessToken: undefined,
-<<<<<<< HEAD
-  isLoading: undefined, 
-  errors: undefined,
-=======
+  userId: undefined,
   isLoading: undefined,
   redirectLogin: false,
->>>>>>> 3b42d786c9752b5515f11e473d79348f180cbdb3
+  errors: undefined,
 }
 
 const handlers = {};
@@ -32,6 +29,7 @@ handlers[LOGIN_REQUEST] = (state, action) => ({
 handlers[LOGIN_SUCCESS] = (state, action) => ({
   ...state,
   accessToken: action.payload.token,
+  userId: action.payload.id,
   isLoading: false,
   errors: undefined,
 });

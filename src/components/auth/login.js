@@ -41,7 +41,7 @@ class Login extends Component {
   }
 
   render() {
-    const { isAuthenticated } = this.props;
+    const { isAuthenticated, isLoading } = this.props;
 
     return ( isAuthenticated ? (
       <Redirect to="/"/>
@@ -55,7 +55,7 @@ class Login extends Component {
                 Username
               </Col>
               <Col sm={10}>
-                <FormControl type="text" name="username" placeholder="Username" onChange={this.handleInputChange} />
+                <FormControl type="text" name="username" placeholder="Username" onChange={this.handleInputChange} disabled={isLoading} />
               </Col>
             </FormGroup>
 
@@ -64,7 +64,7 @@ class Login extends Component {
                 Password
               </Col>
               <Col sm={10}>
-                <FormControl type="password" name="password" placeholder="Password" onChange={this.handleInputChange} />
+                <FormControl type="password" name="password" placeholder="Password" onChange={this.handleInputChange} disabled={isLoading} />
               </Col>
             </FormGroup>
 

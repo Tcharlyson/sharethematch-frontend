@@ -2,9 +2,9 @@ import createReducer from './create-reducer';
 
 // @TODO: This is shit
 import {
-  CREATE_REQUEST,
-  CREATE_SUCCESS,
-  CREATE_FAILURE,
+  APPLY_REQUEST,
+  APPLY_SUCCESS,
+  APPLY_FAILURE,
 } from './../../actions/users-meetups';
 
 const initialState = {
@@ -15,20 +15,20 @@ const initialState = {
 
 const handlers = {};
 
-handlers[CREATE_REQUEST] = (state, action) => ({
+handlers[APPLY_REQUEST] = (state, action) => ({
   ...state,
   isLoading: true,
 });
 
-handlers[CREATE_SUCCESS] = (state, action) => ({
+handlers[APPLY_SUCCESS] = (state, action) => ({
   ...state,
   list: action.payload,
   isLoading: false,
 });
 
-handlers[CREATE_FAILURE] = (state, action) => ({
+handlers[APPLY_FAILURE] = (state, action) => ({
   ...state,
-  isLoading: true,
+  isLoading: false,
 });
 
 export default createReducer(initialState, handlers);

@@ -1,0 +1,1 @@
+export default state => state.meetups.redirectMeetups ? true : false;

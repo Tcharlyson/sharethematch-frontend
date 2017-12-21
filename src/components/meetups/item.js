@@ -13,8 +13,8 @@ class MeetupItem extends Component {
   }
 
   handleApplyClick = (e) => {
-    const { id } = this.props;
-    this.props.apply(id);
+    const { getCurrentUserId, id } = this.props;
+    this.props.apply(getCurrentUserId, id);
   }
 
   handleDestroyClick = (e) => {

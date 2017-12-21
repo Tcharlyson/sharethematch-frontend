@@ -7,6 +7,7 @@ import { create as apply } from './../../actions/users-meetups';
 import getMeetups from './../../store/selectors/get-meetups';
 import isLoading from './../../store/selectors/is-loading';
 import pendingDestroy from './../../store/selectors/pending-destroy';
+import getCurrentUserId from './../../store/selectors/get-current-user-id';
 
 
 import MeetupList from './../../components/meetups/list';
@@ -19,6 +20,7 @@ const mapStateToProps = (state, props) => {
     meetups: getMeetups(state),
     isLoading: isLoadingMeetups(state),
     pendingDestroy: pendingDestroyMeetups(state),
+    getCurrentUserId: getCurrentUserId(state),
   };
 };
 
