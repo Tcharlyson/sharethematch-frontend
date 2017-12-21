@@ -3,6 +3,7 @@ import { apiMiddleware } from 'redux-api-middleware';
 import auth from './reducers/auth';
 import meetups from './reducers/meetups'
 import users from './reducers/users'
+import usersMeetups from './reducers/users-meetups'
 import { loadState, saveState } from '../utils/local-storage';
 import throttle from 'lodash/throttle'
 import apiAuthInjector from './middlewares/api-auth-injector';
@@ -20,6 +21,7 @@ const store = createStore(combineReducers({
   auth,
   meetups,
   users,
+  usersMeetups,
 }), persistedState, composeEnhancers(applyMiddleware(...middlewares)));
 
 store.subscribe(throttle(() => {

@@ -5,23 +5,6 @@ export const FILTER_CHANGE = 'FILTER_CHANGE';
 
 export const filterChange = () => ({ type: FILTER_CHANGE })
 
-
-// APPLY
-export const APPLY_REQUEST = 'APPLY_REQUEST';
-export const APPLY_SUCCESS = 'APPLY_SUCCESS';
-export const APPLY_FAILURE = 'APPLY_FAILURE';
-
-export const apply = (userId, meetupId) => ({
-  [RSAA]: {
-    endpoint: 'http://api.sharethematch.fr/users',
-    method: 'POST',
-    body: JSON.stringify({ userId, meetupId }),
-    types: [
-      APPLY_REQUEST, APPLY_SUCCESS, APPLY_FAILURE
-    ]
-  }
-});
-
 // FETCH INITIAL DATA
 export const FETCH_INITIAL_DATA = 'FETCH_INITIAL_DATA';
 export const FETCH_INITIAL_DATA_SUCCESS = 'FETCH_INITIAL_DATA_SUCCESS';

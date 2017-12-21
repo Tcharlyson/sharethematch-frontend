@@ -1,1 +1,1 @@
-export default state => state.auth.accessToken ? true : false; //localStorage.getItem('token');
+export default state => state.auth.accessToken ? true : false;

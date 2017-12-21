@@ -12,7 +12,8 @@ import {
 
 const initialState = {
   accessToken: undefined,
-  isLoading: undefined, 
+  isLoading: undefined,
+  redirectLogin: false,
 }
 
 const handlers = {};
@@ -43,6 +44,7 @@ handlers[SIGNUP_REQUEST] = (state, action) => ({
 handlers[SIGNUP_SUCCESS] = (state, action) => ({
   ...state,
   isLoading: false,
+  redirectLogin: true,
 });
 
 handlers[SIGNUP_FAILURE] = (state, action) => ({

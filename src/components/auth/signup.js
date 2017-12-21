@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Form, FormGroup, FormControl, Button, Col, ControlLabel } from 'react-bootstrap';
 
 class Signup extends Component {
@@ -35,8 +35,11 @@ class Signup extends Component {
   }
 
   render() {
+    const { redirectLogin } = this.props;
 
-    return (
+    return ( redirectLogin ? (
+      <Redirect to="/login"/>
+    ) : (
       <Col md={6} mdOffset={3} className="auth-card">
         <h1>Create account</h1>
         <Col md={8} mdOffset={2}>
@@ -105,7 +108,7 @@ class Signup extends Component {
           </Form>
         </Col>
       </Col>
-    );
+    ));
   }
 }
 
